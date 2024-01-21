@@ -9,8 +9,38 @@ if(empty($_SESSION)){
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title></title>
+<style>
+
+    .profile-container {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .user-text {
+      font-size: 18px;
+      margin-top: 20px;
+    }</style>
+
 </head>
 <body>
-  <h1><?= "Seja bem vindo " . $_SESSION['nome'] ?></h1>
+<center>
+  <h1>Seja bem vindo</h1>
+  <div class="profile-container row col mt-5">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+</svg>
+  <div class="user-text">
+    <h2 id="user-name"><?=$_SESSION['nome'] ?></h2>
+    <p id="user-email"><?=$_SESSION['email'] ?></p>
+  </div>
+  </div>
+  </center>
 </body>
 </html>

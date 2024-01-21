@@ -2,7 +2,7 @@
 session_start();
 
 if(empty($_POST) or (empty($_POST['email']) or (empty($_POST['senha'])))){
-  print "<script >window.location.href='./login/index.php';</script>";
+  print "<script >window.location.href='./index.php';</script>";
 }
 
 include('config.php');
@@ -24,6 +24,7 @@ include('config.php');
   if($qtd > 0){
     $_SESSION['email'] = $email;
     $_SESSION['nome'] = $row->nome;
+    $_SESSION['email'] = $row->email;
     print" <script>window.location.href='./adm.php';</script>"; 
   }else{
     print" <script>alert('Usuario ou/e senha estão incorretos(s)');</script>";

@@ -1,20 +1,13 @@
-
-  <h1>Listar usuarios</h1>
-  <form method="POST" class="d-flex flex-grow-1 pe-3 mt-3 mb-3 col-md-10 " role="search">
-        <input class="form-control me-2" id="pesquisar" name ="nome-usuario" type="search" placeholder="Ex : Matheus Carvalho" aria-label="Search">
-        <button class="btn btn-outline-success" onclick="searchData()" type="submit">Buscar</button>  
-  </form> 
+<h1>Listar usuarios</h1>
 <?php
+session_start();
+include('config.php');
+$nome = "%".trim($_POST['nome-usuario'])."%";
 
 
-if(isset($_POST['nome-usuario'])){
-  $nome = "%".trim($_POST['nome-usuario'])."%";
-  $sql =  "SELECT * FROM usuarios where nome like '$nome'";
-  $res = $conn->query($sql);
-}else{
-$sql =  "SELECT * FROM usuarios ";
+$sql =  "SELECT * FROM usuarios where nome like '$nome'";
+
 $res = $conn->query($sql);
-}
 
 $qtd  = $res->num_rows;
 
@@ -47,13 +40,3 @@ if($qtd > 0){
   print "<p class='alert alert-danger'>Não encontrou resultados </p>";
 
 }
-?>
-
-<script>
-  var pesquisar = document.querySelector("#pesquisar");
-
-  function searchData(){
-    window.location = 'adm.php?page=listar'+pesquisar.value;
-  }
-
-</script>
